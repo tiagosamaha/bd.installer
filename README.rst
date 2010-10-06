@@ -10,14 +10,22 @@ Para instalar a Biblioteca Digital no Debian você deve habilitar o repositório
     deb-src ftp://ftp.debian-multimedia.org sid main non-free
 
 Agora atualize o apt com esse comando::
+
     apt-get update
+
 Instale o pacote "debian-multimedia-keyring" com esse comando::
+
     apt-get install debian-multimedia-keyring
+
 Atualize o apt novamente.
 Atualize o debian com os pacotes instaveis::
+
     apt-get -y --force-yes dist-upgrade
+
 Atualize o kernel executando::
+
     apt-get -f install
+
 Devido as atualizações do comando anterior, é necessario reiniciar o sistema.
 Após reiniciar execute o comando apt-get -y --force-yes dist-upgrade.
 Verifique se todos os pacotes foram instalados corretamente.
