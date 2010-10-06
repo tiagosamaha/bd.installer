@@ -1,0 +1,7 @@
+python2.4-dev
+libcairo2-dev
+libglib2.0-dev
+libgtk2.0-dev
+libglade2-dev
+libgstreamer0.10-dev
+libgstreamer-plugins-base0.10-dev
