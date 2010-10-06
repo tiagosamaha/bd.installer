@@ -11,13 +11,13 @@ Para instalar a Biblioteca Digital no Debian você deve habilitar o repositório
 
 Agora atualize o apt com esse comando:
     apt-get update
-
-e instale o pacote "debian-multimedia-keyring" com esse comando:
+Instale o pacote "debian-multimedia-keyring" com esse comando:
     apt-get install debian-multimedia-keyring
-
-e atualize o apt novamente.
-
+Atualize o apt novamente.
 Atualize o debian com os pacotes instaveis:
     apt-get -y --force-yes dist-upgrade
-
+Atualize o kernel executando:
+    apt-get -f install
+Devido as atualizações do comando anterior, é necessario reiniciar o sistema.
+Após reiniciar execute o comando apt-get -y --force-yes dist-upgrade.
 Verifique se todos os pacotes foram instalados corretamente.
