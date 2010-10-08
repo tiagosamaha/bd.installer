@@ -21,7 +21,7 @@ done
 cp -Rf /usr/lib/python2.4/site-packages/gtk-2.0/* /usr/local/lib/python2.4/site-packages
 ldconfig
 
-wget -O /tmp/gst-python.tar-gz http://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.18.tar.gz
+wget -O /tmp/gst-python.tar.gz http://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.18.tar.gz
 tar -zxvf /tmp/gst-python.tar.gz -C /tmp
 cd /tmp/gst-python-0.10.18
 PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" PYTHON=python2.4 ./configure ;make; make install
