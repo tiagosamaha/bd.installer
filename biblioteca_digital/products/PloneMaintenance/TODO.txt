@@ -1,0 +1,91 @@
+TODO-LIST
+
+  Email notification
+
+    - Option to send an email notification about tasks performed
+      as they happen, what they did the status.
+
+    - Should look like the email reports sent out by cron
+
+      1. Task was performed as planned. We probably would like to 
+         include the amount of time it took to perform it, when it 
+         started and ended. Maybe we would like to include a small log 
+         saying what exactly was changed in the system, if anything. 
+         For example, a database pack could include the size of the 
+         Data.fs before and after the pack.
+
+         The extra info on db size is nice, but not an absolute necessity. 
+         The main thing is that the task ran as planned.
+
+      2. Task was not performed as planned. If there is a 
+         traceback, we may want to include that. If the Task could not 
+         be performed for another reason, we may want to include some 
+         further information. Then, if the Task was partially 
+         successful, but there are some things that did not work out, 
+         it may be nice to have a way to include what went ok, and what not.
+
+- Make sure that scripts are secured with manager rights
+
+- MaintenanceTask shouldn't be a normal content type
+
+- Make sure that edge cases are treated correctly < <= ==  >= >
+
+- Write initial scripts
+
+  - Rebuild Catalogs in a PloneArticle-aware way (Done by KA - 20050831 - Thx Guilou)
+  
+  - Pack Zope database (Done by KA - 20050831)
+  
+  - Search expired content
+
+  - Search members that didn't login for a long time
+
+  - Search unowned content
+
+  - Detect broken links
+
+  - Check portal and workflow security
+
+  - Report changes compared to the last snapshot (Depends on PloneSnapshot)
+
+  - Expire members that did not log in for a certain time
+
+  - Send error report using entries in the error log
+
+  - Send statistics to admin
+
+    - total number of documents + increment
+    - total number of members + increment
+
+- Use ordered folder for tasks (Zope 2.7) else 
+
+- Allow switching plone_maintenance on and off. 
+  Right now, to switch off a task, you have to deselect the script or
+  specify a date in the past, both of which is not acceptable
+
+- Allow multiple selection of hour, minute, month, day_of_month and day_of_week
+  Right now you have to add multiple tasks if you want to run them several
+  times
+
+- Implement scheduled_days_of_week, which was a bit too complicated to get
+  done in the first run
+
+- Implement maximum_minutes_delay, which specifies the maximum minutes after
+  the specified date that it is still possible to run the task. This is going
+  to be useful in cases you don't want a ZODB pack to happen at daytime after
+  the server was down during the night, when the pack should have happened.
+
+- (Low priority) We also need to know how many minutes, after the Task is scheduled, 
+it is still ok to run it. Imagine a pack of the ZODB is due at 1 o'clock at night,
+and the Zope Server is only started at 13:00 that day due to an electricity
+black out. The pack is certainly not a good idea after lunch time at 13:10, 
+when the scheduler finally executes the Tasks, so if we set a maximum delay 
+time of 60*4 minutes, we are sure that the ZODB pack is done at a time nobody
+is in the office and that it will be finished before people arrive.
+
+Tasks are added to the portal_maintenance tool as SimpleItems. They have a 
+"script_name" property that names the script which they execute and they have 
+a "last_execution_date" which stores the last time the task was executed.
+This is initiated when a task is created or modified. It also has an optional 
+maximum_delay option that stores the number of minutes of delay that are 
+acceptable. If it is set to 0 it means the delay is of no importance.

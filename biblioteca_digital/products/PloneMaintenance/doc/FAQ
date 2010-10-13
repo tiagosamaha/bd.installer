@@ -1,0 +1,24 @@
+Using ZopeScheduler and TimerService
+
+  1) unarchive these products in $INSTANCE/Products
+
+  2) Edit TimerService/timerserver/component.xml and move ten minutes interval
+  to one :
+
+    <key name="interval" datatype="integer" default="600">
+
+  Will become :
+
+    <key name="interval" datatype="integer" default="60">
+
+  3) Go in TimerService/timerserver and launch `python2.3 setup.py install`
+
+  4) For Windows administrators, copy $PYTHON_LIB/site-packages/timerserver in
+  $ZOPE/lib/python
+
+  5) Restart Zope
+
+  You will see something like that in event logs:
+
+    2005-11-04T08:39:44 INFO ZServer Timer server started at Fri Nov  4 08:39:44 2005
+        Interval: 60 seconds.

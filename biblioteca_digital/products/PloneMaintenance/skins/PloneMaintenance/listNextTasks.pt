@@ -1,0 +1,16 @@
+<table border="1">
+<tr>
+<td>Task</td>
+<td>Last execution time</td>
+<td>Next scheduled at last execution time</td>
+<td>Next scheduled at current time</td>
+<td>Would be run now?</td>
+</tr>
+<tr tal:repeat="task python:here.tasks.items()">
+<td tal:content="python:task[0]" />
+<td tal:content="python:task[1].getLastExecutionTime()" />
+<td tal:content="python:task[1].getNextScheduledExecutionTime(task[1].getLastExecutionTime())" />
+<td tal:content="python:task[1].getNextScheduledExecutionTime(DateTime())" />
+<td tal:content="python:task[1].isPending()" />
+</tr>
+</table>

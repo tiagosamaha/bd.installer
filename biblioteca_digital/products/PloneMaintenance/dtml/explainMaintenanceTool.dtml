@@ -1,0 +1,60 @@
+<dtml-var manage_page_header>
+<dtml-var manage_tabs>
+
+<h3> <code>portal_maintenance</code> Tool </h3>
+
+<p> This tool is called by an external scheduler in order to run maintenance
+    scripts. 
+</p>
+
+<h4>Next Tasks</h4>
+
+<dtml-var "listNextTasks()">
+
+<p>
+<a href="runMaintenanceTasks">Run tasks that should be run now</a>
+</p>
+
+<p>
+    Choose one of the Schedulers which are available for Zope:
+    <ul>
+    <li><a href="http://www.zope.org/Members/lstaffor/Xron">Xron</a></li>
+    <li><a href="http://dev.legco.biz/products/ZopeScheduler">Zope Scheduler</a></li>
+    <li><a href="http://zope.org/Members/lstaffor/ZScheduler">ZScheduler</a></li>
+    </ul>
+</p>
+<p>
+    Read the documentation of these products and test them independently from
+    PloneMaintenance! Try to make the product of your choice call a script
+    on your site that raises an error (e.g. raise "Called"). Then make sure the
+    error was reported in the error log. If you run into trouble, contact the 
+    author of the product you have chosen. There is no need to mention
+    PloneMaintenance to them, make sure you tell them exactly what you are 
+    trying to achieve, and kindly ask for help.
+</p>
+<p>
+    Once you have confirmed that you can call a Python Script somewhere on your
+    site reliably, come back and make it call the runMaintenanceTasks script at
+    http://mysite.com/runMaintenanceTasks. 
+</p>
+<dtml-if "hasInstalledScheduler()==0">
+<div tal:condition="python:not here.hasInstalledScheduler()">
+    <b>Xron, ZopeScheduler or ZScheduler not found.</b>
+<p>
+       If you install neither of these tools, you may use a cron job
+       to regularly call PloneMaintenance.</b>
+</p>
+</div>
+</dtml-if>
+<p>
+    Point your cron job to call http://mysite.com/runMaintenanceTasks
+    <ul>
+    <li>Howto on Zope.org: <a href="http://zope.org/Members/phd/cron-zope">Run cron jobs to do things  automatically</a></li>
+    </ul>
+</p>
+<p>
+    You can call Plone Maintenance by script like it is done in runMaintenanceTasks
+    or as Anonymous user via the web using the URL http://localhost/runMaintenanceTasks.
+</p>
+
+<dtml-var manage_page_footer>

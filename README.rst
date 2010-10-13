@@ -1,20 +1,19 @@
-InstalaÃ§Ã£o
+Buildout Biblioteca Digital
+===========================
+
+    Buildout para instalação da solução da biblioteca digital.
+
+Ambientes do buildout
+=====================
+
+    O buildout pode ser utilizado para instalar a solução da biblioteca digital
+    em duas maneiras diferentes, ambiente de desenvolvimento ou de produção.
+    Para escolher o ambiente de instalação edite o arquivo buildout.cfg.
+
+Instalação
 ==========
 
-Para instalar a Biblioteca Digital no Debian vocÃª deve habilitar o repositÃ³rio
-"unstable". Para habilitar este repositÃ³rio, adicione no arquivo
-`/etc/apt/source.list` as seguintes linhas:
-
-::    
-
-  deb http://ftp.br.debian.org/debian/ sid main contrib non-free
-  deb-src http://ftp.br.debian.org/debian/ sid main contrib non-free
-
-  deb ftp://ftp.debian-multimedia.org sid main non-free
-  deb-src ftp://ftp.debian-multimedia.org sid main non-free
-
-Agora atualize o apt e instale o pacote "debian-multimedia-keyring", e atualize
-o apt novamente.
-Antes de prosseguir na instalaÃ§Ã£o, tenha certeza que todas as atualizaÃ§Ãµes
-(apt-get -y --force-yes dist-upgrade) do repositÃ³rio "unstable" foram
-executadas.
+    Para instalar a solução da biblioteca digital execute o script install.sh
+    como root e informe qual o sistema operecional (Debian/Ubuntu).
+    A instalação do CloudOOo (sistema de conversão de arquivos) é opcional,
+    consulte o guia de instalação em http://www.erp5.org/HowToUseCloudOOo.

@@ -1,0 +1,147 @@
+1.4.2 2007/08/30
+
+- Fixed end of month computation
+
+1.4.1 2006/11/03
+
+- Does'nt break ZMI if resqueted schedulong gives an impossible date: for example
+  11/31 or 2006/02/29
+
+1.4 2006/07/13
+
+- Fix bug on MaintenanceTask: id was not initialized
+
+- Add "notified_emails" property. When a task has been processed, an email is 
+  sent.
+
+- MaintenanceTask no more addable types 2006/07/06 MR
+
+1.3 2006/05/31
+
+- Handle force parameter 2006/05/31 MR
+
+- Set last execution date when script fails 2006/05/19 MR
+
+- Fix end of month is not the 31 bug
+
+1.2 2006/01/24
+
+- Allow to run debug mode with a debug.txt file in the product 2005/11/07 ED
+
+- Code cleaning 2005/11/07 ED
+
+1.1 2005/10/05
+
+- Don't allow tasks to be added globally. 2005/10/04 MR
+
+- Added "Select a script" to task drop down. A user could get the impression
+  that a script was selected although he never chose one. 2005/09/29 MR
+
+- Added some more logs
+
+- Added and tested a script that allows updating the portal_catalog.
+
+- Added, tested and improved a script that allows archiving the Plone site's expired content. 2005/09/15
+
+1.0 2005/09/01
+
+- Improved the Install.py (allow reinstall without an error, code cleanup, etc)
+
+- More importantly, fixed a bug with the rebuildCatalogs script not applying to the right context (i.e. the Plone site root). In the future, we should investigate replacing External Methods with tool-based helper methods or Zope 3 views/adapters.
+
+- Add proxy role manager to runMaintenanceTasks script 2005/08/31
+
+- Fixed problem for Plone 2.1 compatibility in Scripts.py and Tasks.py 2005/08/31
+
+- Integrated "Rebuild Catalogs in a PloneArticle-aware way" script as an external method 2005/08/31
+
+- Integrated "Pack ZODB" script as an external method 2005/08/31
+
+- Reporting when scripts fail to run 2005/03/27
+
+- Removed dependency on navigation_properties and form_properties (Plone 2.1) 2005/03/27
+
+- runTasks returns a description of what was done 2005/03/15
+
+- Added link for running maintenance tasks directly in maintenance tool 2005/03/15
+
+- Added runMaintenanceTasks Python Script. Changed Readme to explain 
+  how to call this script. 2005/03/11
+
+0.3.2 2004/07/27
+
+- Showing last execution time as well
+
+- Last execution time is now correctly stored upon task execution
+
+0.3.1 2004/07/05
+
+- Removed bogus imports - product was broken if ZAttachmentAttribute was
+  not installed.
+- Fixed Readme: Of course portal_maintenance/runTasks should be called, 
+  and not plone_maintenance/runTasks.
+
+0.3.0 2004/05/17
+
+- The algorithm used to calculate the next execution date was 
+  simplified and refactored
+
+0.2.3 2004/05/15
+
+- Adding Maintenance scripts in doc/maintenance_scripts.txt: 
+
+  - Pack DB
+
+  - Update Catalog
+
+0.2.2 2004/04/26
+
+- Removing seconds from DateTimes as they don't play a role
+
+0.2.1 2004/04/25
+
+- Made sure that runMaintenanceTasks can be run by Anonymous
+
+- Show scheduled tasks in Overview
+
+0.2 2004/04/25 Maik Rder
+
+- rewrote getNextScheduledExecutionTime
+
+- Show warning in the Overview tab when no schedulers are installed
+
+- Explain quickly where to look for info on installing a scheduler
+
+- Explanation on the different ways of running PloneMaintenance
+
+- adapted unit tests and wrote some
+
+- added skin
+
+0.1.1 2004/04/21 Maik Rder
+
+- Log entries at the important points
+
+  - runTasks
+
+  - runTask
+
+- replaced _v_execution_date by execution_date
+
+0.1 - 2004/04/19 Maik Rder
+
+* Initial version
+
+- Create a scripts folder for our scripts
+
+- Show selection list for the existing scripts
+
+- Scripts and Tasks come in their own folder.
+
+- Added Tabs for these folders.
+
+- Added Overview Tab
+
+- Scripts can be added to Tasks with drop-down list
+
+- Tested running Tasks
