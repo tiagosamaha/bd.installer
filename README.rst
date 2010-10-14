@@ -1,19 +1,35 @@
-Buildout Biblioteca Digital
-===========================
+Biblioteca Digital
+==================
 
-    Buildout para instalação da solução da biblioteca digital.
+Biblioteca Digital pode ser instalada a partir deste módulo, que contém o
+buildout e scripts para instalação de dependências.
+Esta é uma instalação para deploy (produção).
 
-Ambientes do buildout
-=====================
+Pré-Requisitos
+==============
 
-    O buildout pode ser utilizado para instalar a solução da biblioteca digital
-    em duas maneiras diferentes, ambiente de desenvolvimento ou de produção.
-    Para escolher o ambiente de instalação edite o arquivo buildout.cfg.
+A solução da Biblioteca Digital depende do sistema operacional Debian 5, com
+respositório `unstable` habilitado (equivalente ao Debian Squeeze).
+Para habilitar o repositório `unstable` certifique-se que o conteúdo do
+arquivo `/etc/apt/source.list` seja o listado abaixo:
 
-Instalação
-==========
+::
+    
+    deb http://ftp.br.debian.org/debian/ sid main contrib non-free
+    deb-src http://ftp.br.debian.org/debian/ sid main contrib non-free
 
-    Para instalar a solução da biblioteca digital execute o script install.sh
-    como root e informe qual o sistema operecional (Debian/Ubuntu).
-    A instalação do CloudOOo (sistema de conversão de arquivos) é opcional,
-    consulte o guia de instalação em http://www.erp5.org/HowToUseCloudOOo.
+    deb ftp://ftp.debian-multimedia.org sid main non-free
+    deb-src ftp://ftp.debian-multimedia.org sid main non-free
+
+    deb http://security.debian.org/ lenny/updates main
+    deb-src http://security.debian.org/ lenny/updates main
+
+    deb http://volatile.debian.org/debian-volatile lenny/volatile main
+    deb-src http://volatile.debian.org/debian-volatile lenny/volatile main
+
+Atualize todo o sistema com as atualizações disponíveis neste repositório,
+através do comando abaixo.
+
+::
+
+    apt-get update && apt-get dist-upgrade
