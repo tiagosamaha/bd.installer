@@ -35,3 +35,5 @@ xorg
 xfonts-cyrillic
 sun-java6-bin
 subversion
+libextractor-dev
+python-pychart

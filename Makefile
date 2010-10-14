@@ -1,10 +1,13 @@
-all:
+all: apt gstreamer biblioteca_digital_
+
+apt:
 	./helper_scripts/install_apt_packs.sh
-	gstreamer
-	biblioteca_digital
 
 gstreamer:
 	./helper_scripts/install_gst_packs.sh
 
-biblioteca_digital:
+cloudooo:
+	./helper_scripts/install_cloudooo.sh
+
+biblioteca_digital_:
 	./helper_scripts/install_digital_library.sh
