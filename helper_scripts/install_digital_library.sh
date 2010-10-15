@@ -7,6 +7,8 @@ python2.4 /tmp/ez_setup.py
 easy_install-2.4 pip
 pip install http://pascal.iff.edu.br/pypi/PIL-1.1.6.tar.gz
 pip install extractor
+pip install elementtree
+pip install ftp://xmlsoft.org/libxml2/python/libxml2-python-2.6.9.tar.gz
 
 cd $FOLDER/../biblioteca_digital/
 
