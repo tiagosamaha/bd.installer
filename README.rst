@@ -32,4 +32,38 @@ através do comando abaixo.
 
 ::
 
-    apt-get update && apt-get dist-upgrade
+    servidor:~# apt-get update && apt-get dist-upgrade
+
+Após toda atualização do sistema, instale dois aplicativos necessários para
+pré-instalação da solução.
+
+::
+
+    servidor:~# apt-get install make subversion
+
+Instalação
+==========
+
+Para instalar a solução da Biblioteca Digital, baixe o instalador do
+repositório da RENAPI através do comando abaixo:
+
+::
+
+    servidor:~# svn co https://svn.renapi.org/bd/utils/buildout/branches/nsi.deploy/
+
+Com o nsi.deploy baixado, entre no diretório e execute o seguinte comando com o
+usuário `root`:
+
+::
+
+    servidor:~# make
+
+Toda solução será instalada dentro da pasta `biblioteca_digital` no nsi.deploy.
+
+O servidor de conversão de documentos é opcional, caso deseje instalá-lo vide a
+seção CloudOOo.
+
+CloudOOo
+========
+
+

@@ -3,12 +3,6 @@ echo -n "Deseja instalar o CloudOOo [s/n]? "
 read opcao
 case $opcao in
     s)
-        wget -O /tmp/Python-2.6.6.tgz http://www.python.org/ftp/python/2.6.6/Python-2.6.6.tgz
-        tar xvvf /tmp/Python-2.6.6.tgz -C /tmp
-        cd /tmp/Python-2.6.6/
-        ./configure
-        make
-        make install
         wget -O /tmp/ez_setup.py http://peak.telecommunity.com/dist/ez_setup.py
         python2.6 /tmp/ez_setup.py
         mkdir -p /etc/cloud3o/run
